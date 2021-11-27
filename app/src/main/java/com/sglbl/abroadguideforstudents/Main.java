@@ -39,6 +39,12 @@ public class Main extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void checkUserType(View v){
+        rbutton = findViewById( rGroup.getCheckedRadioButtonId() );
+        Toast.makeText(getApplicationContext(),"Selected user type: " + rbutton.getText() ,Toast.LENGTH_SHORT).show();
+    }
+
+
     public void openRegisterPage(){
         Intent i; //This is for opening game.
         i = new Intent(this, RegisterPage.class);

@@ -14,15 +14,6 @@
         android:layout_centerVertical="true"
         android:text="LOGIN" />
 
-    <Button
-        android:id="@+id/regButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/registerAsk"
-        android:text="REGISTER" />
-
     <TextView
         android:id="@+id/gametype"
         android:layout_width="wrap_content"
@@ -41,7 +32,7 @@
 
         <RadioButton
             android:id="@+id/one"
-            android:onClick="checkHowManyPlayer"
+            android:onClick="checkUserType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -49,22 +40,12 @@
 
         <RadioButton
             android:id="@+id/two"
-            android:onClick="checkHowManyPlayer"
+            android:onClick="checkUserType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Informer"/>
 
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/registerAsk"
-        android:textSize="25sp"
-        android:layout_marginBottom="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Click here to register"/>
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -85,5 +66,24 @@
         android:layout_above="@+id/loginButton"
         android:ems="10"
         android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/regButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_above="@+id/registerAsk"
+        android:text="REGISTER" />
+
+    <TextView
+        android:id="@+id/registerAsk"
+        android:textSize="25sp"
+        android:layout_marginBottom="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Click here to register"/>
 
 </RelativeLayout>
