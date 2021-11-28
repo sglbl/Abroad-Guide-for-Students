@@ -12,8 +12,8 @@ import android.widget.Toast;
 public class Main extends AppCompatActivity {
     private RadioGroup rGroup;
     private RadioButton rbutton;
-    public static final String EXTRA_TEXT = "com.sglbl.hexgame.transfer.EXTRA_TEXT";
-    public static final String EXTRA_NUMB = "com.sglbl.hexgame.transfer.EXTRA_NUMB";
+    public static final String EXTRA_TEXT = "com.sglbl.abroadguideforstudents.transfer.EXTRA_TEXT";
+    public static final String EXTRA_NUMB = "com.sglbl.abroadguideforstudents.transfer.EXTRA_NUMB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

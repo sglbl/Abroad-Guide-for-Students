@@ -32,7 +32,7 @@ public class DrawerActivity extends AppCompatActivity {
         binding.appBarDrawer.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Create a new info", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
