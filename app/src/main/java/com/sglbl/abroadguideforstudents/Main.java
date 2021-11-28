@@ -10,8 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Main extends AppCompatActivity {
-    private Button loginButton;
-    private Button registerButton;
     private RadioGroup rGroup;
     private RadioButton rbutton;
     public static final String EXTRA_TEXT = "com.sglbl.hexgame.transfer.EXTRA_TEXT";
@@ -23,10 +21,32 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.main);
 
         rGroup  = findViewById(R.id.rGroup);
-        loginButton = (Button) findViewById(R.id.loginButton);
+        Button loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> openSecondPage());
-        registerButton = (Button)findViewById(R.id.regButton);
+
+        Button registerButton = (Button) findViewById(R.id.regButton);
         registerButton.setOnClickListener(v-> openRegisterPage());
+
+        Button documentationButton = (Button) findViewById(R.id.documentationButton);
+        documentationButton.setOnClickListener(v-> openDocumentationPage());
+
+        Button enteringButton = (Button)findViewById(R.id.enteringButton);
+        enteringButton.setOnClickListener(v-> openInfoPage());
+
+    }
+
+    private void openDocumentationPage() {
+        Intent i; //This is for opening game.
+        i = new Intent(this, DocumentationPage.class);
+
+        startActivity(i);
+    }
+
+    private void openInfoPage() {
+        Intent i; //This is for opening game.
+        i = new Intent(this, DrawerActivity.class);
+
+        startActivity(i);
     }
 
     public void openSecondPage(){

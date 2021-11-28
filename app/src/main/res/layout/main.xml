@@ -13,6 +13,22 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="LOGIN" />
+    <Button
+        android:id="@+id/enteringButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/loginButton"
+        android:text="CONTINUE WITHOUT LOGIN" />
+
+    <Button
+        android:id="@+id/documentationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/regButton"
+        android:text="Documentation" />
+
 
     <TextView
         android:id="@+id/gametype"

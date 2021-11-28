@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sglbl.abroadguideforstudents">
+    package="com.sglbl.abroadguideforstudents" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,19 +12,30 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AbroadGuideForStudents">
-        <activity android:name=".MainActivity"
-            android:parentActivityName=".Main">
-            <!-- Body intentionally empty -->
-        </activity>
-        <activity android:name=".RegisterPage"
-            android:parentActivityName=".Main">
+        android:theme="@style/Theme.AbroadGuideForStudents" >
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/Theme.AbroadGuideForStudents.NoActionBar" >
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".Main" >
+
+            <!-- Body intentionally empty -->
+        </activity>
+        <activity
+            android:name=".RegisterPage"
+            android:parentActivityName=".Main" />
+        <activity
+            android:name=".DocumentationPage"
+            android:parentActivityName=".Main" />
+        <activity
             android:name=".Main"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
