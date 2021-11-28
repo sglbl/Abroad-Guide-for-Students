@@ -1,4 +1,4 @@
-package com.sglbl.abroadguideforstudents.ui.gallery;
+package com.sglbl.abroadguideforstudents.ui.technical;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.sglbl.abroadguideforstudents.databinding.FragmentGalleryBinding;
+import com.sglbl.abroadguideforstudents.databinding.FragmentTechnicalBinding;
 
-public class GalleryFragment extends Fragment {
+public class TechnicalFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
-    private FragmentGalleryBinding binding;
+    private TechnicalViewModel technicalViewModel;
+    private FragmentTechnicalBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        technicalViewModel =
+                new ViewModelProvider(this).get(TechnicalViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentTechnicalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textSlideshow;
+        technicalViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

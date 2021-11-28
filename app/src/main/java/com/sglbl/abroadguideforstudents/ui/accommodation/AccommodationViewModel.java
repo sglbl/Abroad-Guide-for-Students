@@ -1,16 +1,16 @@
-package com.sglbl.abroadguideforstudents.ui.slideshow;
+package com.sglbl.abroadguideforstudents.ui.accommodation;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class AccommodationViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public AccommodationViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {
