@@ -28,7 +28,7 @@
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/editTextTextPersonName"
+        android:layout_above="@id/editTextPersonName"
         android:layout_centerHorizontal="true">
 
         <RadioButton
@@ -50,18 +50,17 @@
 
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:hint="Enter email"
+        android:id="@+id/editTextForId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/editTextTextPassword"
+        android:layout_above="@+id/editTextPassword"
+        android:layout_centerInParent="true"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:hint="Enter id"
+        android:inputType="numberSigned" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         android:hint="Enter password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,13 +70,14 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editTextTextEmailAddress"
+        android:layout_above="@+id/editTextForId"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Name Surname" />
+        android:hint="Name Surname"
+        android:inputType="textPersonName" />
+
 
 </RelativeLayout>

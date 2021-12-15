@@ -64,14 +64,14 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:hint="Enter email"
+        android:id="@+id/editTextForId"
+        android:hint="Enter id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/editTextTextPassword"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="numberSigned" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
