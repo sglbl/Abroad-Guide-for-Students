@@ -26,23 +26,22 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main extends AppCompatActivity implements View.OnClickListener {
+public class Main extends AppCompatActivity implements View.OnClickListener{
     private RadioGroup rGroup;
-    private RadioButton rbutton;
     private Button loginButton;
     private EditText idText, pwText;
     private ProgressDialog progressDialog;
-    public static final String EXTRA_TEXT = "com.sglbl.abroadguideforstudents.transfer.EXTRA_TEXT";
-    public static final String EXTRA_NUMB = "com.sglbl.abroadguideforstudents.transfer.EXTRA_NUMB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        System.out.println("\nHELLOOOOOOO\n\n\n\n\n");
+
         rGroup  = findViewById(R.id.rGroup);
         loginButton = (Button) findViewById(R.id.loginButton);
-        //loginButton.setOnClickListener(v -> openSecondPage());
+        loginButton.setOnClickListener(this);
 
         Button registerButton = (Button) findViewById(R.id.regButton);
         registerButton.setOnClickListener(v-> openRegisterPage());
@@ -74,11 +73,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         try {
-                            System.out.println("The message is ");
-                            Log.i("tagconvertstr", "["+response+"]"); // to see error message if there is
                             //first converting response to json object.
                             JSONObject jsonObject = new JSONObject(response); //sending message with json method.
-                            if(jsonObject.getBoolean("error")){
+                            if(!jsonObject.getBoolean("error")){
                                 SharedPrefManager.getInstance(getApplicationContext()).userLogin(
                                     jsonObject.getInt("id"),
                                     jsonObject.getString("role"),
@@ -143,18 +140,8 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         startActivity(i);
     }
 
-    public void openSecondPage(){
-        Intent i; //This is for opening game.
-        i = new Intent(this, MainActivity.class);
-
-        rbutton = findViewById( rGroup.getCheckedRadioButtonId() );
-        i.putExtra(EXTRA_TEXT, rbutton.getText()  );
-
-        startActivity(i);
-    }
-
     public void checkUserType(View v){
-        rbutton = findViewById( rGroup.getCheckedRadioButtonId() );
+        RadioButton rbutton = findViewById(rGroup.getCheckedRadioButtonId());
         Toast.makeText(getApplicationContext(),"Selected user type: " + rbutton.getText() ,Toast.LENGTH_SHORT).show();
     }
 
@@ -169,8 +156,10 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        System.out.println(88);
         if(view == loginButton){ //onclick listener checks if user clicked on that button
             userLogin();
+            System.out.println(77);
         }
     }
 }

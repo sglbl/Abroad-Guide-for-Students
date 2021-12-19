@@ -10,15 +10,15 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:text="LOGIN" />
+
     <Button
         android:id="@+id/enteringButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
         android:text="CONTINUE WITHOUT LOGIN" />
 
     <Button
@@ -69,18 +69,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/editTextTextPassword"
+        android:layout_above="@+id/editTextPassword"
         android:ems="10"
         android:inputType="numberSigned" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:hint="Enter password"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/loginButton"
+        android:layout_centerHorizontal="true"
         android:ems="10"
+        android:hint="Enter password"
         android:inputType="textPassword" />
 
     <Button
