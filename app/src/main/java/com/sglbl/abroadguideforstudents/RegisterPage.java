@@ -70,8 +70,8 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                         progressDialog.dismiss();
                         try {
                             System.out.println("The message is ");
-                            Log.i("tagconvertstr", "["+response+"]");
-                            JSONObject jsonObject = new JSONObject(response);
+                            Log.i("tagconvertstr", "["+response+"]"); // to see error message if there is
+                            JSONObject jsonObject = new JSONObject(response); //sending message with json method.
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
