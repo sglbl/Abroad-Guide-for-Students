@@ -39,6 +39,12 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_page);
 
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){ //if user is logged in turn this off.
+            finish();
+            startActivity(new Intent(this, DrawerActivity.class));
+            return; //because we don't want the code below because we are already logged in.
+        }
+
         rGroup  = findViewById(R.id.rGroup);
         registerButton = (Button) findViewById(R.id.regButton);
         registerButton.setOnClickListener(this);

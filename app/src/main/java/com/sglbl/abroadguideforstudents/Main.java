@@ -37,7 +37,11 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        System.out.println("\nHELLOOOOOOO\n\n\n\n\n");
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){ //because user is logged in, it automatically open the info page
+            finish();
+            startActivity(new Intent(this, DrawerActivity.class));
+            return;
+        }
 
         rGroup  = findViewById(R.id.rGroup);
         loginButton = (Button) findViewById(R.id.loginButton);
@@ -86,6 +90,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                                         "User login successful",
                                         Toast.LENGTH_LONG //it's about time that will stay.
                                 ).show();
+                                //Because of user entered right info, we can continue to page;
+                                startActivity(new Intent(getApplicationContext(), DrawerActivity.class ));
+                                finish(); //activity is done so can be closed
                             }else{
                                 Toast.makeText(
                                         getApplicationContext(),
@@ -93,7 +100,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                                         Toast.LENGTH_LONG
                                 ).show();
                             }
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -53,6 +53,21 @@ public class SharedPrefManager {
         return false;
     }
 
+    public String getUserName(){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_NAME, null); //return name, if empty return null
+    }
+
+    public String getUserRole(){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_ROLE, null); //return role, if empty return null
+    }
+
+    public int getUserId(){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(KEY_ID, -1);
+    }
+
     public boolean logout(){
         /* These means that only this application access these */
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
