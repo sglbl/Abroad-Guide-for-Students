@@ -20,9 +20,8 @@
             android:theme="@style/Theme.AbroadGuideForStudents.NoActionBar" >
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".InfoPage"
             android:parentActivityName=".Main" >
-
             <!-- Body intentionally empty -->
         </activity>
         <activity

@@ -43,16 +43,6 @@ public class SharedInfoManager {
         return true;
     }
 
-    public boolean isInfoPageOpen(){
-        /* These means that only this application access these */
-        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        /* Will check KEY_ID and if it's not same will return -1 (And then it will check if it's not -1)*/
-        if(sharedPreferences.getInt(KEY_ID, -1) != -1){
-            return true;
-        }
-        return false;
-    }
-
     public int getInfoId(){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getInt(KEY_ID, -1);

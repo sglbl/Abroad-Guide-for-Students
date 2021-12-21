@@ -8,43 +8,44 @@
 
     <TextView
         android:id="@+id/title"
-        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:layout_marginBottom="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:text="Title part"/>
+        android:text="Title part"
+        android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/text"
-        android:textSize="25sp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginLeft="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/title"
-        android:text="Text part"/>
+        android:layout_marginBottom="46dp">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="25dp"
+            android:text="Text part"
+            android:textSize="25sp"
+            tools:ignore="RtlHardcoded" />
+
+    </ScrollView>
 
     <TextView
         android:id="@+id/photoLink"
-        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="14dp"
+        android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:layout_marginBottom="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/text"
+        android:focusable="true"
         android:text="Photo link"
-        android:focusable="true" />
+        android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/closeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@+id/photoLink"
-        android:text="CLOSE" />
 </RelativeLayout>

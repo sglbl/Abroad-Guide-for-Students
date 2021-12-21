@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/accommodation"
-        android:name="com.sglbl.abroadguideforstudents.ui.accommodation.AccommodationFragment"
+        android:name="com.sglbl.abroadguideforstudents.Accommodation"
         android:label="Accommodation"
         tools:layout="@layout/fragment_accommodation" />
 
     <fragment
         android:id="@+id/transportation"
-        android:name="com.sglbl.abroadguideforstudents.ui.transportation.TransportationFragment"
+        android:name="com.sglbl.abroadguideforstudents.Transportation"
         android:label="Transportation"
         tools:layout="@layout/fragment_transportation" />
 
     <fragment
         android:id="@+id/technical"
-        android:name="com.sglbl.abroadguideforstudents.ui.technical.TechnicalFragment"
+        android:name="com.sglbl.abroadguideforstudents.Technical"
         android:label="Technical"
         tools:layout="@layout/fragment_technical" />
 
