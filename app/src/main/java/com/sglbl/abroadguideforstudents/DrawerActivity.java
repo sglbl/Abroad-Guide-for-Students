@@ -21,8 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.sglbl.abroadguideforstudents.databinding.ActivityDrawerBinding;
 
-import org.w3c.dom.Text;
-
 public class DrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -86,8 +84,8 @@ public class DrawerActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        // so it will ad logout option to menu.
-        getMenuInflater().inflate(R.menu.drawer, menu);
+        // so it will add logout and profile option to menu.
+        getMenuInflater().inflate(R.menu.options_menu, menu);
         return true;
     }
 

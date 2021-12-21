@@ -13,7 +13,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -32,7 +31,6 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
     private RadioGroup rGroup;
     private ProgressDialog progressDialog;
     private EditText idText, nameText, pwText;
-    public static final String EXTRA_TEXT2 = "com.sglbl.abroadguideforstudents.transfer.EXTRA_TEXT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +92,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                 }){
             @Nullable
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 Map<String,String> params = new HashMap<>();
                 params.put("id", userID);
                 params.put("role", role);
