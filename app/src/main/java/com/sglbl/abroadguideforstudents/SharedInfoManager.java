@@ -15,6 +15,7 @@ public class SharedInfoManager {
     private static final String KEY_TITLE = "title";
     private static final String KEY_TEXT = "text";
     private static final String KEY_PHOTO = "photo"; //link of photo
+    private static final String KEY_JSON = "json";
 
     private SharedInfoManager(Context context) {
         ctx = context;
@@ -27,7 +28,7 @@ public class SharedInfoManager {
         return instance;
     }
 
-    public boolean enteringInfoPage(int id, String category, String title, String text, String photo){
+    public void enteringInfoPage(int id, String category, String title, String text, String photo, String json){
         /* These means that only this application access these */
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         //After user login with correct data these will stored on application.
@@ -38,9 +39,9 @@ public class SharedInfoManager {
         editor.putString(KEY_TITLE, title);
         editor.putString(KEY_TEXT, text);
         editor.putString(KEY_PHOTO, photo);
+        editor.putString(KEY_JSON, json);
         editor.apply();
 
-        return true;
     }
 
     public int getInfoId(){
@@ -61,6 +62,11 @@ public class SharedInfoManager {
     public String getInfoPhoto(){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_PHOTO, null); //return photo link, if empty return null
+    }
+
+    public String getJsonText(){
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_JSON, null); //return json text, if empty return null
     }
 
     public void clearInfoPage(){

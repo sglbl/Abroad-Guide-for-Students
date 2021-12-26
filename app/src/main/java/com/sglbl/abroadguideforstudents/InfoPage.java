@@ -24,7 +24,8 @@ import java.util.Map;
 @SuppressWarnings("FieldCanBeLocal")
 public class InfoPage extends AppCompatActivity {
     private TextView titleText, realText,photoLinkText;
-    ProgressDialog progressDialog;
+    private String jsonText;
+    private ProgressDialog progressDialog;
     int id = 0;
 
     @Override
@@ -38,33 +39,31 @@ public class InfoPage extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait..");
 
-        gettingInfo();
+        //gettingInfo();
+        String infoId = getIntent().getStringExtra("EXTRA_ID");
         //Changing the text in the layout of info page.
+        System.out.println(  "->Info id is " + SharedInfoManager.getInstance(this).getInfoId() );
         titleText.setText( String.valueOf(SharedInfoManager.getInstance(this).getInfoId() ) );
         titleText.setText(SharedInfoManager.getInstance(this).getInfoTitle());
         realText.setText(SharedInfoManager.getInstance(this).getInfoText());
         photoLinkText.setText(SharedInfoManager.getInstance(this).getInfoPhoto());
-
+        jsonText = SharedInfoManager.getInstance(this).getJsonText();
     }
 
     private void gettingInfo(){
-        StringRequest stringRequest = new StringRequest(
-                Request.Method.GET,
-                Constants.URL_INFO,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
                         progressDialog.dismiss();
                         try {
                             //first converting response to json object.
-                            JSONObject jsonObject = new JSONObject(response); //sending message with json method.
+                            String jsonText = SharedInfoManager.getInstance(this).getJsonText();
+                            JSONObject jsonObject = new JSONObject(jsonText); //sending message with json method.
                             if(!jsonObject.getBoolean("error")){
                                 SharedInfoManager.getInstance(getApplicationContext()).enteringInfoPage(
                                         id = jsonObject.getInt("id"),
                                         jsonObject.getString("category"),
                                         jsonObject.getString("title"),
                                         jsonObject.getString("text"),
-                                        jsonObject.getString("photo")
+                                        jsonObject.getString("photo"),
+                                        jsonText //sending all json text.
                                 );
                                 Toast.makeText(
                                         getApplicationContext(),
@@ -82,30 +81,7 @@ public class InfoPage extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progressDialog.dismiss();
-                        Toast.makeText(
-                                getApplicationContext(),
-                                error.getMessage(),
-                                Toast.LENGTH_LONG
-                        ).show();
-                    }
-                }
-        ){
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("id", String.valueOf(id) );
-                return params;
-            }
-        };
 
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
 
     }
 
