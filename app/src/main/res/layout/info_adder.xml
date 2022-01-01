@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/addInfoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextForText"
+        android:text="Add Info" />
+
+    <TextView
+        android:id="@+id/categoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:text="Select category:"/>
+
+    <RadioGroup
+        android:id="@+id/rGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoryText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/accommodation_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Accommodation" />
+
+        <RadioButton
+            android:id="@+id/transportation_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transportation" />
+
+        <RadioButton
+            android:id="@+id/technical_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Technical" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editTextForTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/rGroup"
+        android:ems="10"
+        android:hint="Enter title"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextForLink"
+        android:hint="Enter photo link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextForTitle"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextForText"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:layout_below="@id/editTextForLink"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter info text" />
+
+
+</RelativeLayout>

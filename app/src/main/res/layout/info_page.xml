@@ -36,16 +36,12 @@
 
     </ScrollView>
 
-    <TextView
-        android:id="@+id/photoLink"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="14dp"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="Photo link"
-        android:textSize="25sp" />
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

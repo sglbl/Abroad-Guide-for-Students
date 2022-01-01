@@ -25,6 +25,11 @@
             <!-- Body intentionally empty -->
         </activity>
         <activity
+            android:name=".InfoAdder"
+            android:parentActivityName=".Main" >
+            <!-- Body intentionally empty -->
+        </activity>
+        <activity
             android:name=".RegisterPage"
             android:parentActivityName=".Main" />
         <activity

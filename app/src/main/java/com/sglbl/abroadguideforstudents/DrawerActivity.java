@@ -40,11 +40,12 @@ public class DrawerActivity extends AppCompatActivity {
         }
 
         setSupportActionBar(binding.appBarDrawer.toolbar);
-        binding.appBarDrawer.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarDrawer.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Create a new info", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Page for adding a new info", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startActivity(new Intent(getApplicationContext(), InfoAdder.class ));
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
