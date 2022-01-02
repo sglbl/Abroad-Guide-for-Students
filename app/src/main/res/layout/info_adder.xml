@@ -44,11 +44,11 @@
             android:text="Transportation" />
 
         <RadioButton
-            android:id="@+id/technical_rb"
+            android:id="@+id/general_rb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Technical" />
+            android:text="General" />
 
     </RadioGroup>
 

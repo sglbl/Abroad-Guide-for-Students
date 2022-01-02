@@ -98,21 +98,22 @@ public class InfoPage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(SharedPrefManager.getInstance(this).getUserRole().equals("Informer") &&
-            SharedPrefManager.getInstance(this).getUserId() == userId &&
-                id == R.id.removeInfo) {
-            removeInfo();
-            //closing the activity because it's done.
-            finish();
-            //opening main page again.
-            Toast.makeText(this,"Remove successful", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, DrawerActivity.class));
-            return true;
-        }
-        else
-            Toast.makeText(this,"Remove unsuccessful\n" +
-                    "You are not the informer/owner of this info\n", Toast.LENGTH_SHORT).show();
-            return false;
+        if(id == R.id.removeInfo)
+            if( SharedPrefManager.getInstance(this).getUserRole().equals("Informer") &&
+                    SharedPrefManager.getInstance(this).getUserId() == userId){
+                removeInfo();
+                //closing the activity because it's done.
+                finish();
+                //opening main page again.
+                Toast.makeText(this,"Remove successful", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, DrawerActivity.class));
+            }
+            else {
+                Toast.makeText(this, "Remove unsuccessful\n" +
+                        "You are not the informer/owner of this info\n", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        return true;
     }
 
     public void removeInfo(){
