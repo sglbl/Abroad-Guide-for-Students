@@ -36,32 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
-        android:text="Select who you are"
-        android:layout_below="@+id/rGroup" />
-
-    <RadioGroup
-        android:id="@+id/rGroup"
-        android:layout_marginTop="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
-
-        <RadioButton
-            android:id="@+id/one"
-            android:onClick="checkUserType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Informee"/>
-
-        <RadioButton
-            android:id="@+id/two"
-            android:onClick="checkUserType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Informer"/>
-
-    </RadioGroup>
+        android:text="   Welcome to the\n Abroad Guide App"
+        android:layout_marginBottom="80dp"
+        android:layout_above="@+id/editTextForId" />
 
     <EditText
         android:id="@+id/editTextForId"

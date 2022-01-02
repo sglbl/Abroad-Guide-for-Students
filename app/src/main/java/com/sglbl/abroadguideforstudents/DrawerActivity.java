@@ -101,9 +101,10 @@ public class DrawerActivity extends AppCompatActivity {
             //opening main page again.
             startActivity(new Intent(this, Main.class));
         }
-        else if(id == R.id.profile){
-            //çç
-            Toast.makeText(this,"Opening profile info", Toast.LENGTH_SHORT).show();
+        else if(id == R.id.libraries){
+            Toast.makeText(this,"This app uses free open source Volley library\n" +
+                    "to make networking for this Android app easier and faster with RequestQueue\n" +
+                    "It's available on https://developer.android.com/training/volley", Toast.LENGTH_SHORT).show();
         }
         return true;
     }

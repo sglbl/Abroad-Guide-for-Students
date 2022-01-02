@@ -8,7 +8,7 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/profile"
-        android:title="Profile"
+        android:id="@+id/libraries"
+        android:title="Open Source Libraries"
         />
 </menu>

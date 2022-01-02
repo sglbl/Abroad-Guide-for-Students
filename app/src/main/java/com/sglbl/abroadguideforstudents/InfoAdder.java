@@ -25,6 +25,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class InfoAdder extends AppCompatActivity implements View.OnClickListener {
     Button infoAdderButton;
@@ -49,7 +50,9 @@ public class InfoAdder extends AppCompatActivity implements View.OnClickListener
     }
 
     private void addInfoToDatabase() {
-        final String id = String.valueOf(SharedPrefManager.getInstance(this).getUserId() );
+        Random random = new Random();
+        final String id = String.valueOf( random.nextInt(1000000) ); //assign random int to id.
+        final String u_id = String.valueOf(SharedPrefManager.getInstance(this).getUserId() );
         final String title = titleText.getText().toString().trim();
         final String link = photoLinkText.getText().toString().trim();
         final String info = infoText.getText().toString().trim();
@@ -90,8 +93,9 @@ public class InfoAdder extends AppCompatActivity implements View.OnClickListener
                 params.put("id", id);
                 params.put("category", category);
                 params.put("title", title);
-                params.put("photo", link);
                 params.put("text", info);
+                params.put("photo", link);
+                params.put("u_id", u_id);
                 return params;
             }
         };
@@ -106,11 +110,5 @@ public class InfoAdder extends AppCompatActivity implements View.OnClickListener
         if(v == infoAdderButton)
             addInfoToDatabase();
     }
-//
-//    public void checkCategoryType(View v){
-//        Button rButton = findViewById(rGroup.getCheckedRadioButtonId());
-//        Toast.makeText(getApplicationContext(),"Selected user type: " + rButton.getText() ,Toast.LENGTH_SHORT).show();
-//        category = rButton.getText().toString();
-//    }
 
 }

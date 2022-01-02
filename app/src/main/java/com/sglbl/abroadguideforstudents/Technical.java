@@ -105,11 +105,6 @@ public class Technical extends Fragment {
                                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
                                 if (jsonObject.isNull("error")) { //if "error" is null, then no error.
-                                    Toast.makeText(
-                                            getActivity().getApplicationContext(),
-                                            "Getting info successful",
-                                            Toast.LENGTH_LONG //it's about time that will stay.
-                                    ).show();
                                     addToLayout( jsonObject.getString("title") );
                                 } else { //if "error" is not null, then there is error.
                                     Toast.makeText(
