@@ -11,7 +11,7 @@
             android:id="@+id/transportation"
             android:title="Transportation" />
         <item
-            android:id="@+id/technical"
-            android:title="Technical" />
+            android:id="@+id/general"
+            android:title="General" />
     </group>
 </menu>

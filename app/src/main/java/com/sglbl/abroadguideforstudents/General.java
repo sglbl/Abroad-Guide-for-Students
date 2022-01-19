@@ -2,7 +2,6 @@ package com.sglbl.abroadguideforstudents;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
@@ -14,7 +13,6 @@ import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +31,9 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @SuppressLint("SetTextI18n")
-public class Technical extends Fragment {
+public class General extends Fragment {
     private ProgressDialog progressDialog;
     private LinearLayout linearLayout;
     private Intent infoPageIntent;
@@ -44,12 +41,8 @@ public class Technical extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View v = inflater.inflate(R.layout.fragment_technical, container, false);
+        View v = inflater.inflate(R.layout.fragment_general, container, false);
         linearLayout = (LinearLayout) v.findViewById(R.id.ll_example);
-
-        String textToMakeClickable = "programmatically created clickable text";
-        addToLayout(textToMakeClickable);
-
         getAllInfoFromDatabase();
 
         return v;
@@ -68,8 +61,6 @@ public class Technical extends Fragment {
             }
         }, 0, sb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Please wait..");
         //we need to call getActivity because we cannot use 'this' in fragment as Context
         // Add textview dynamically
         TextView textView = new TextView(getActivity());
@@ -84,6 +75,9 @@ public class Technical extends Fragment {
     }
 
     public void getAllInfoFromDatabase(){
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Please wait..");
+
         StringRequest stringRequest = new StringRequest(
                 Request.Method.GET,
                 Constants.URL_INFO,
@@ -105,7 +99,8 @@ public class Technical extends Fragment {
                                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
                                 if (jsonObject.isNull("error")) { //if "error" is null, then no error.
-                                    addToLayout( jsonObject.getString("title") );
+                                    if(jsonObject.getString("category").equals("General"))
+                                        addToLayout( jsonObject.getString("title") );
                                 } else { //if "error" is not null, then there is error.
                                     Toast.makeText(
                                             getActivity().getApplicationContext(),

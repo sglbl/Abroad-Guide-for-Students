@@ -18,9 +18,9 @@
         tools:layout="@layout/fragment_transportation" />
 
     <fragment
-        android:id="@+id/technical"
-        android:name="com.sglbl.abroadguideforstudents.Technical"
-        android:label="Technical"
-        tools:layout="@layout/fragment_technical" />
+        android:id="@+id/general"
+        android:name="com.sglbl.abroadguideforstudents.General"
+        android:label="General"
+        tools:layout="@layout/fragment_general" />
 
 </navigation>

@@ -47,9 +47,6 @@ public class Accommodation extends Fragment {
         View v = inflater.inflate(R.layout.fragment_accommodation, container, false);
         linearLayout = (LinearLayout) v.findViewById(R.id.ll_example);
 
-        String textToMakeClickable = "programmatically created clickable text";
-        addToLayout(textToMakeClickable);
-
         getAllInfoFromDatabase();
 
         return v;
@@ -68,8 +65,6 @@ public class Accommodation extends Fragment {
             }
         }, 0, sb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Please wait..");
         //we need to call getActivity because we cannot use 'this' in fragment as Context
         // Add textview dynamically
         TextView textView = new TextView(getActivity());
@@ -84,6 +79,8 @@ public class Accommodation extends Fragment {
     }
 
     public void getAllInfoFromDatabase(){
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Please wait..");
         StringRequest stringRequest = new StringRequest(
                 Request.Method.GET,
                 Constants.URL_INFO,
@@ -105,7 +102,8 @@ public class Accommodation extends Fragment {
                                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
                                 if (jsonObject.isNull("error")) { //if "error" is null, then no error.
-                                    addToLayout( jsonObject.getString("title") );
+                                    if(jsonObject.getString("category").equals("Accommodation"))
+                                        addToLayout( jsonObject.getString("title") );
                                 } else { //if "error" is not null, then there is error.
                                     Toast.makeText(
                                             getActivity().getApplicationContext(),

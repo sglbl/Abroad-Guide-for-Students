@@ -53,9 +53,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         Button documentationButton = (Button) findViewById(R.id.documentationButton);
         documentationButton.setOnClickListener(v-> openDocumentationPage());
 
-        Button enteringButton = (Button)findViewById(R.id.enteringButton);
-        enteringButton.setOnClickListener(v-> openInfoPage());
-
         idText = (EditText) findViewById(R.id.editTextForId);
         pwText = (EditText) findViewById(R.id.editTextPassword);
 
@@ -139,13 +136,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
         startActivity(i);
     }
 
-    private void openInfoPage() {
-        Intent i; //This is for opening game.
-        i = new Intent(this, DrawerActivity.class);
-
-        startActivity(i);
-    }
-
     public void checkUserType(View v){
         RadioButton rbutton = findViewById(rGroup.getCheckedRadioButtonId());
         Toast.makeText(getApplicationContext(),"Selected user type: " + rbutton.getText() ,Toast.LENGTH_SHORT).show();
@@ -162,10 +152,8 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        System.out.println(88);
         if(view == loginButton){ //onclick listener checks if user clicked on that button
             userLogin();
-            System.out.println(77);
         }
     }
 }

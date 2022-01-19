@@ -43,8 +43,11 @@ public class DrawerActivity extends AppCompatActivity {
         binding.appBarDrawer.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Page for adding a new info", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if(!textViewRole.getText().toString().equals("Informer")) {
+                    Snackbar.make(view, "User is not an informer", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return;
+                }
                 startActivity(new Intent(getApplicationContext(), InfoAdder.class ));
             }
         });
@@ -53,7 +56,7 @@ public class DrawerActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.accommodation, R.id.transportation, R.id.technical)
+                R.id.accommodation, R.id.transportation, R.id.general)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_drawer);
